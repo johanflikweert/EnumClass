@@ -4,56 +4,82 @@
     <description>This widget can be used to give the element or its row a class, dependent on an enumeration value. You can also replace the caption by a Glyphicon and use the caption as the Tooltip.</description>
 
     <icon>
-iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuOWwzfk4AAAGPSURBVGhDzc4xYcQAEMTAR/BAQyLQnQCYauXiiqmlz/P5PK/7edfn9/seDleYLji+4nCF6YLjKw5XmC44vuJwhemC4ysOV5guOL7icIXpguMrDleYLji+4nCF6YLjKw5XmC44vuJwhemC4ysOV5guOL7icIXpguMrDleYLji+4nCF6YLjKw5XmC44vuJwhemC4ysOV5guOL7icIXpguMrDleYLji+4nCF6YLjq+d/8XWYLji+4nCF6YLjKw5XmC44vuJwhemC4ysOV5guOL7icIXpguMrDleYLji+4nCF6YLjKw5XmC44vuJwhemC4ysOV5guOL7icIXpguMrDleYLji+4nCF6YLjKw5XmC44vuJwhemC4ysOV5guOL7icIXpguMrDleYLji+4nCF6YLjKw5XmC44vuLwMRxfKXANx1cKXMPxlQLXcHylwDUcXylwDcdXClzD8ZUC13B8pcA1HF8pcA3HVwpcw/GVAtdwfKXANRxfKXANx1cKXMPxlQLXcHylwDUcXylwDccn3+cPtg/8Pw8BU1wAAAAASUVORK5CYII=	
-	</icon>
+        iVBORw0KGgoAAAANSUhEUgAAADwAAAA8CAYAAAA6/NlyAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAAYdEVYdFNvZnR3YXJlAHBhaW50Lm5ldCA0LjAuOWwzfk4AAAGPSURBVGhDzc4xYcQAEMTAR/BAQyLQnQCYauXiiqmlz/P5PK/7edfn9/seDleYLji+4nCF6YLjKw5XmC44vuJwhemC4ysOV5guOL7icIXpguMrDleYLji+4nCF6YLjKw5XmC44vuJwhemC4ysOV5guOL7icIXpguMrDleYLji+4nCF6YLjKw5XmC44vuJwhemC4ysOV5guOL7icIXpguMrDleYLji+4nCF6YLjq+d/8XWYLji+4nCF6YLjKw5XmC44vuJwhemC4ysOV5guOL7icIXpguMrDleYLji+4nCF6YLjKw5XmC44vuJwhemC4ysOV5guOL7icIXpguMrDleYLji+4nCF6YLjKw5XmC44vuJwhemC4ysOV5guOL7icIXpguMrDleYLji+4nCF6YLjKw5XmC44vuLwMRxfKXANx1cKXMPxlQLXcHylwDUcXylwDcdXClzD8ZUC13B8pcA1HF8pcA3HVwpcw/GVAtdwfKXANRxfKXANx1cKXMPxlQLXcHylwDUcXylwDccn3+cPtg/8Pw8BU1wAAAAASUVORK5CYII=
+    </icon>
 
-   <properties>
-       <property key="name" type="attribute" required="true" isPath="optional" pathType="reference">
-			<caption>Attribute</caption>
-			<category>Data source</category>
-			<description>The attribute to manipulate</description> 
-			<attributeTypes>
-				<attributeType name="String"/> 
-				<attributeType name="Enum"/> 
-			</attributeTypes>
-       </property>
-       <property key="enumvalues" type="object" isList="true" required="false">
-			<caption>Values</caption>
-			<category>Data source</category>
-			<description>List of enumeration values, classes and captions.</description>
-			<properties>
-				<property key="captions" type="string" required="true">
-					<caption>Enum key</caption>
-					<category>Appearance</category>
-					<description>This should be exactly the same values as the connected enumeration.</description>  
-				</property>
-				<property key="classnames" type="string">
-					<caption>Classname</caption>
-					<category>Appearance</category>
-					<description>The classname that you want to add.</description>
-				</property>
+    <properties>
+        <property key="attributeType" type="enumeration" required="true" defaultValue="primitive">
+            <caption>Attribute Type</caption>
+            <category>Behavior</category>
+            <description>Select attribute for a primitive or association for a reference.</description>
+            <enumerationValues>
+                <enumerationValue key="primitive">Primitive</enumerationValue>
+                <enumerationValue key="reference">Reference</enumerationValue>
+            </enumerationValues>
+        </property>
+        <property key="name" type="attribute" required="false" isPath="optional" pathType="reference">
+            <caption>Attribute</caption>
+            <category>Behavior</category>
+            <description>The attribute to manipulate</description>
+            <attributeTypes>
+                <attributeType name="String"/>
+                <attributeType name="Enum"/>
+                <attributeType name="Boolean"/>
+            </attributeTypes>
+        </property>
+        <property key="referenceEntity" type="entity" required="false" isPath="yes" pathType="reference">
+            <caption>Reference To Check</caption>
+            <category>Behavior</category>
+            <description>Select a referenced entity to check for its presence. Map values "true" and "false".</description>
+        </property>
+        <property key="associationClassName" type="string" required="false">
+            <caption>Association Class Name</caption>
+            <category>Behavior</category>
+            <description>The name of the class to add when the above association exists.</description>
+        </property>
+        <property key="enumvalues" type="object" isList="true" required="false">
+            <caption>Values</caption>
+            <category>Behavior</category>
+            <description>List of enumeration values, classes and captions.</description>
+            <properties>
+                <property key="captions" type="string" required="true">
+                    <caption>Enum key</caption>
+                    <category>Appearance</category>
+                    <description>This should be exactly the same values as the connected enumeration.</description>
+                </property>
+                <property key="classnames" type="string">
+                    <caption>Classname</caption>
+                    <category>Appearance</category>
+                    <description>The classname that you want to add.</description>
+                </property>
                 <property key="replacements" type="string" required="false">
-					<caption>Caption</caption>
-					<category>Appearance</category>
-					<description>The caption to display (empty will leave the caption as specified in the enumeration).</description>
-				</property>
-			</properties>
-       </property>
-       <property key="applyToEnum" type="enumeration" required="true" defaultValue="SELF">
+                    <caption>Caption</caption>
+                    <category>Appearance</category>
+                    <description>The caption to display (empty will leave the caption as specified in the enumeration).</description>
+                </property>
+            </properties>
+        </property>
+        <property key="showWidget" type="boolean" defaultValue="true">
+            <caption>Show Widget</caption>
+            <category>Appearance</category>
+            <description>Whether or not to display this widget at all. Set to false to only manipulate classes of other elements.</description>
+        </property>
+        <property key="applyToEnum" type="enumeration" required="true" defaultValue="SELF">
             <caption>Apply To</caption>
             <category>Appearance</category>
             <description>Determines to which element the class is applied.</description>
             <enumerationValues>
                 <enumerationValue key="SELF">Self</enumerationValue>
-				<enumerationValue key="PARENT">Parent</enumerationValue>
+                <enumerationValue key="PARENT">Parent</enumerationValue>
+                <enumerationValue key="SIBLING">Previous Sibling</enumerationValue>
                 <enumerationValue key="ROW">Templategrid Row</enumerationValue>
+				<enumerationValue key="ITEM">ListView Item</enumerationValue>
             </enumerationValues>
-        </property>	
-       <property key="glyphicon" type="string" required="false">
-           <caption>Glyphicon</caption>
-           <category>Appearance</category>
-           <description>If you want to replace the value by a Glyphicon, specific its name here (without the glyphicon-part). This is only possible when applied to 'Self'.</description>
-       </property>
-	</properties>
+        </property>
+        <property key="glyphicon" type="string" required="false">
+            <caption>Glyphicon</caption>
+            <category>Appearance</category>
+            <description>If you want to replace the value by a Glyphicon, specific its name here (without the glyphicon-part). This is only possible when applied to 'Self'.</description>
+        </property>
+    </properties>
 </widget>
-
