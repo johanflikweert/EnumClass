@@ -1,5 +1,4 @@
-<?xml version="1.0" encoding="utf-8" ?>
-<widget id="EnumClass.widget.EnumClass" needsEntityContext="true" xmlns="http://www.mendix.com/widget/1.0/">
+<?xml version="1.0" encoding="utf-8" ?><widget id="EnumClass.widget.EnumClass" needsEntityContext="true" offlineCapable="true" xmlns="http://www.mendix.com/widget/1.0/">
     <name>EnumClass</name>
     <description>This widget can be used to give the element or its row a class, dependent on an enumeration value. You can also replace the caption by a Glyphicon and use the caption as the Tooltip.</description>
 
