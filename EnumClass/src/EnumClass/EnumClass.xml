@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="utf-8" ?>
-
 <widget id="EnumClass.widget.EnumClass" needsEntityContext="true" offlineCapable="true" xmlns="http://www.mendix.com/widget/1.0/">
     <name>EnumClass</name>
     <description>This widget can be used to give the element or its row a class, dependent on an enumeration value. You can also replace the caption by a Glyphicon and use the caption as the Tooltip.</description>
@@ -21,11 +20,12 @@
         <property key="name" type="attribute" required="false" isPath="optional" pathType="reference">
             <caption>Attribute</caption>
             <category>Behavior</category>
-            <description>The attribute to manipulate</description>
+            <description>The attribute to base the class on</description>
             <attributeTypes>
                 <attributeType name="String"/>
                 <attributeType name="Enum"/>
                 <attributeType name="Boolean"/>
+                <attributeType name="Integer"/>
             </attributeTypes>
         </property>
         <property key="referenceEntity" type="entity" required="false" isPath="yes" pathType="reference">
@@ -60,7 +60,7 @@
                 </property>
             </properties>
         </property>
-        <property key="showWidget" type="boolean" defaultValue="true">
+        <property key="showWidget" type="boolean" defaultValue="false">
             <caption>Show Widget</caption>
             <category>Appearance</category>
             <description>Whether or not to display this widget at all. Set to false to only manipulate classes of other elements.</description>
